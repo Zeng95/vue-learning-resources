@@ -45,10 +45,15 @@ export default {
   inject: ['addResource'],
   methods: {
     submitData() {
-      const enteredTitle = this.$refs.titleInput.value
-      const enteredDescription = this.$refs.descInput.value
-      const enteredLink = this.$refs.linkInput.value
-      
+      const enteredTitle = this.$refs.titleInput.value.trim()
+      const enteredDescription = this.$refs.descInput.value.trim()
+      const enteredLink = this.$refs.linkInput.value.trim()
+
+      if (!enteredTitle || !enteredDescription || !enteredLink) {
+        // The input is invalid
+        return false
+      }
+
       this.addResource(enteredTitle, enteredDescription, enteredLink)
     }
   }

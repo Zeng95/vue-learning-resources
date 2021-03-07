@@ -4,7 +4,7 @@
       <BaseCard>
         <header>
           <h3 class="title">{{ item.title }}</h3>
-          <BaseButton mode="flat" type="button">Delete</BaseButton>
+          <BaseButton type="button" class="btn-delete" mode="flat">Delete</BaseButton>
         </header>
 
         <p class="description">{{ item.description }}</p>

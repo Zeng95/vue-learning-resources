@@ -1,5 +1,5 @@
 <template>
-  <button class="btn-delete" :class="mode">
+  <button class="btn" :class="mode">
     <slot />
   </button>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-.btn-delete {
+.btn {
   padding: 0.75rem 1.5rem;
   border: 1px solid #3a0061;
   border-radius: 4px;
@@ -26,8 +26,8 @@ export default {
   outline: none;
 }
 
-.btn-delete:hover,
-.btn-delete:active {
+.btn:hover,
+.btn:active {
   background-color: #270041;
   border-color: #270041;
 }
