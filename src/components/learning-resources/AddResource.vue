@@ -1,6 +1,6 @@
 <template>
   <div class="add-resource">
-    <BaseCard>
+    <base-card>
       <form @submit.prevent="submitData">
         <!-- Title -->
         <div class="form-control">
@@ -28,20 +28,16 @@
 
         <!-- Submit Button -->
         <div class="form-control">
-          <BaseButton type="submit">Add Resource</BaseButton>
+          <base-button type="submit">Add Resource</base-button>
         </div>
       </form>
-    </BaseCard>
+    </base-card>
   </div>
 </template>
 
 <script>
-import BaseCard from '@c/shared/BaseCard'
-import BaseButton from '@c/shared/BaseButton'
-
 export default {
   name: 'AddResource',
-  components: { BaseButton, BaseCard },
   inject: ['addResource'],
   methods: {
     submitData() {

@@ -1,21 +1,21 @@
 <template>
-  <BaseCard>
+  <base-card>
     <!-- Custom components -->
-    <BaseButton
+    <base-button
       type="button"
       id="stored-resources"
       :mode="storedResButtonMode"
       @click="setSelectedTab('stored-resources')"
-      >Stored Resources</BaseButton
+      >Stored Resources</base-button
     >
-    <BaseButton
+    <base-button
       type="button"
       id="add-resource"
       :mode="addResButtonMode"
       @click="setSelectedTab('add-resource')"
-      >Add Resource</BaseButton
+      >Add Resource</base-button
     >
-  </BaseCard>
+  </base-card>
 
   <transition name="fade" mode="out-in">
     <keep-alive>
@@ -28,12 +28,10 @@
 import { v4 as uuidv4 } from 'uuid'
 import AddResource from './AddResource'
 import StoredResources from './StoredResources'
-import BaseCard from '@c/shared/BaseCard'
-import BaseButton from '@c/shared/BaseButton'
 
 export default {
   name: 'TheResources',
-  components: { StoredResources, AddResource, BaseCard, BaseButton },
+  components: { StoredResources, AddResource },
   computed: {
     storedResButtonMode() {
       return this.selectedTab === 'stored-resources' ? null : 'flat'
