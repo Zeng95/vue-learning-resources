@@ -1,5 +1,15 @@
 <template>
   <div class="add-resource">
+    <base-dialog :dialogVisible="inputIsInvalid" title="Invalid Input" @close="confirmError">
+      <template #default>
+        <p>Unfortunately, at least one input value is invalid.</p>
+        <p>
+          Please check all inputs and make sure you enter at least a few
+          characters into each input field.
+        </p>
+      </template>
+    </base-dialog>
+
     <base-card>
       <form @submit.prevent="submitData">
         <!-- Title -->
@@ -39,6 +49,11 @@
 export default {
   name: 'AddResource',
   inject: ['addResource'],
+  data() {
+    return {
+      inputIsInvalid: false
+    }
+  },
   methods: {
     submitData() {
       const enteredTitle = this.$refs.titleInput.value.trim()
@@ -47,10 +62,15 @@ export default {
 
       if (!enteredTitle || !enteredDescription || !enteredLink) {
         // The input is invalid
+        this.inputIsInvalid = true
+        console.info(this.inputIsInvalid)
         return false
       }
 
       this.addResource(enteredTitle, enteredDescription, enteredLink)
+    },
+    confirmError() {
+      this.inputIsInvalid = false
     }
   }
 }

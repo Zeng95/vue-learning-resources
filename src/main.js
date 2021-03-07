@@ -1,3 +1,4 @@
+import { devtools } from '@/devtools';
 import { createApp } from 'vue'
 import App from './App'
 import 'normalize.css'
@@ -12,4 +13,4 @@ app.component('base-card', BaseCard)
 app.component('base-button', BaseButton)
 app.component('base-dialog', BaseDialog)
 
-app.mount('#app')
+app.use(devtools).mount('#app')
