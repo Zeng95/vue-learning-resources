@@ -1,10 +1,16 @@
 <template>
   <ul class="stored-resources">
-    <LearningResource v-for="item in resources" :key="item.id">
+    <li v-for="item in resources" :key="item.id">
       <base-card>
         <header>
           <h3 class="title">{{ item.title }}</h3>
-          <base-button type="button" class="btn-delete" mode="flat">Delete</base-button>
+          <base-button
+            type="button"
+            class="btn-delete"
+            mode="flat"
+            @click="removeResource(item.id)"
+            >Delete</base-button
+          >
         </header>
 
         <p class="description">{{ item.description }}</p>
@@ -13,17 +19,14 @@
           <a :href="item.link" target="_blank">View Resource</a>
         </nav>
       </base-card>
-    </LearningResource>
+    </li>
   </ul>
 </template>
 
 <script>
-import LearningResource from './LearningResource'
-
 export default {
   name: 'StoredResources',
-  components: { LearningResource },
-  inject: ['resources']
+  inject: ['resources', 'removeResource']
 }
 </script>
 
@@ -44,6 +47,9 @@ header {
 .title {
   font-size: 1.25rem;
   margin: 0.5rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .description {
