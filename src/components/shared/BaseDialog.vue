@@ -17,7 +17,7 @@
 
         <menu>
           <slot name="actions">
-            <base-button @click="$emit('close')">Close</base-button>
+            <base-button @click="$emit('close')">{{ buttonText }}</base-button>
           </slot>
         </menu>
       </main>
@@ -36,6 +36,10 @@ export default {
     dialogVisible: {
       type: Boolean,
       required: true
+    },
+    buttonText: {
+      type: String,
+      default: 'Close'
     }
   },
   emits: ['close']

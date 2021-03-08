@@ -1,6 +1,11 @@
 <template>
   <div class="add-resource">
-    <base-dialog :dialogVisible="inputIsInvalid" title="Invalid Input" @close="confirmError">
+    <base-dialog
+      :dialogVisible="inputIsInvalid"
+      title="Invalid Input"
+      buttonText="Okay"
+      @close="confirmError"
+    >
       <template #default>
         <p>Unfortunately, at least one input value is invalid.</p>
         <p>
