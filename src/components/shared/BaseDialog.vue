@@ -1,28 +1,31 @@
 <template>
-  <div class="dialog" v-if="dialogVisible">
-    <div class="mask"></div>
-    <dialog open>
-      <!-- Header -->
-      <header>
-        <slot name="header">
-          <h2>{{ title }}</h2>
-        </slot>
-      </header>
-
-      <!-- Content -->
-      <main>
-        <section>
-          <slot></slot>
-        </section>
-
-        <menu>
-          <slot name="actions">
-            <base-button @click="$emit('close')">{{ buttonText }}</base-button>
+  <teleport to="body">
+    <div class="dialog" v-if="dialogVisible">
+      <div class="mask"></div>
+      
+      <dialog open>
+        <header>
+          <slot name="header">
+            <h2>{{ title }}</h2>
           </slot>
-        </menu>
-      </main>
-    </dialog>
-  </div>
+        </header>
+
+        <main>
+          <section>
+            <slot></slot>
+          </section>
+
+          <menu>
+            <slot name="actions">
+              <base-button @click="$emit('close')">{{
+                buttonText
+              }}</base-button>
+            </slot>
+          </menu>
+        </main>
+      </dialog>
+    </div>
+  </teleport>
 </template>
 
 <script>

@@ -63,7 +63,7 @@ export default {
     return {
       resources: this.storedResources,
       addResource: this.addResource,
-      removeResource: this.removeResource
+      deleteResource: this.removeResource
     }
   },
   methods: {
@@ -77,11 +77,11 @@ export default {
       this.selectedTab = 'stored-resources'
     },
     removeResource(resourceId) {
-      const resourcIndex = this.storedResources.findIndex((item) => {
-        return item.id === resourceId
+      const resourceIndex = this.storedResources.findIndex((resource) => {
+        return resource.id === resourceId
       })
 
-      this.storedResources.splice(resourcIndex, 1)
+      this.storedResources.splice(resourceIndex, 1)
     }
   }
 }

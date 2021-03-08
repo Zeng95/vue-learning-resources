@@ -4,17 +4,16 @@
       <base-card>
         <header>
           <h3 class="title">{{ item.title }}</h3>
+          <!-- Delete Button -->
           <base-button
+            mode="flat"
             type="button"
             class="btn-delete"
-            mode="flat"
-            @click="removeResource(item.id)"
+            @click="deleteResource(item.id)"
             >Delete</base-button
           >
         </header>
-
         <p class="description">{{ item.description }}</p>
-
         <nav>
           <a :href="item.link" target="_blank">View Resource</a>
         </nav>
@@ -26,7 +25,7 @@
 <script>
 export default {
   name: 'StoredResources',
-  inject: ['resources', 'removeResource']
+  inject: ['resources', 'deleteResource']
 }
 </script>
 
